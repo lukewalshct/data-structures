@@ -1,4 +1,4 @@
-# data-structures-projects
+# Huffman-Encoder
 
 This project is a program that compresses and decompresses basic .txt files using Huffman encoding
 (assuming only Ascii characters are present in the original file). 

@@ -8,4 +8,5 @@ were proviced (please see the "Starter Files" folder for reference).
 
 Please see the PDF for the assignment's instructions.
 
-This is currently a working first version (work in progress).
+This is currently a working first version (work in progress). For more information on class structure
+and a discussion of the program's efficiency please see 'README.txt'.

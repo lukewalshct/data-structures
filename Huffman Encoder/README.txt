@@ -1,4 +1,4 @@
-Data Structures Fina Project
+Data Structures Final Project
 Luke Walsh
 lukewalshct@gmail.com
 
@@ -77,7 +77,7 @@ is read in to update its frequency it accesses the array in constant time O(1).
 Having constant time access to this array when reading through the input file is arguably
 one of the most critical steps in terms of time efficiency of the entire program, since in 
 most cases it will be the most frequently called operation (along with reading in characters
-for the actual encoding). For example, if there is a file with 1 million characters, the 
+for the actual encoding/decoding). For example, if there is a file with 1 million characters, the 
 array will need to be accessed 1 million times (in contrast, the Huffman tree build operation 
 will still only be called once).   
 
@@ -101,15 +101,16 @@ the linked list of characters, and then re-inserting it into the linked list unt
 only one node left in the list with all the characters as leaf nodes in its subtrees.
 
 The overall time efficiency of this step is O(n), since the time to combine the first two nodes
-is negligible but it the new parent node needs to be inserted into the linked list which is O(n)
+is negligible but the new parent node needs to be inserted into the linked list which is O(n)
 as mentioned above.
 
 STEP 4: Encode each character and store it in a "lookup table" (array).
 
-The time efficiency for this entire step is O(nlogn) in the average case, where n is the number 
-of characters that have at least one occurrence (freq > 0) in the input file. This is because when 
-a character is encoded the Huffman tree is traversed which itself is O(logn) efficient in the average
-case, and this traversal needs to happen n times (one for each character).
+The time efficiency for this entire step is O(c*h) in the average case, where c is the number 
+of characters that have at least one occurrence (freq > 0) in the input file and h is the height of 
+the Huffman tree. This is because when a character is encoded the Huffman tree is traversed
+which itself is O(h) efficient in the average case, and this traversal needs to happen c times (one
+for each character).
 
 STEP 5: Write a header to the output file.
 
@@ -152,11 +153,11 @@ STEP 4: Read through the compressed file and write each character as the decoded
 	version in a new output file.
 
 This step is the only one that is significantly different from the compression process. In the 
-average case this step will be O(nlogn), where n is the number of characters in the compressed
-file. This is because the bits are read in one by one from the compressed file, and are used
-to traverse the Huffman tree until a leaf node is reached. This is similar to a search function
-using a binary tree, which is O(logn) in the average case, and this process needs to be done
-for each character in the compressed file (n times), giving O(nlogn).
+average case this step will be O(c*h), where c is the number of characters in the compressed
+file and h is the height of the Huffman tree. This is because the bits are read in one by one from
+the compressed file, and are used to traverse the Huffman tree until a leaf node is reached. This is 
+similar to a search function using a binary tree, which is O(h) in the average case, and this process 
+needs to be done for each character in the compressed file (c times), giving O(c*h).
 
 
 
